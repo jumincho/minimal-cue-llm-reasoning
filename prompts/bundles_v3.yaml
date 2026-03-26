@@ -1,0 +1,235 @@
+metadata:
+  version: bundles_v3_construct_validity_candidates
+  separator: " | "
+  selected_on: phaseD_dev_selection_pending
+controls:
+  generic_neutral:
+    cue_id: generic_neutral_v3
+    text:
+      - reason carefully
+      - answer accurately
+      - stay focused
+      - verify the result
+families:
+  boolean_logic:
+    canonical: truth value
+    semantic:
+      cue_id: bool_sem_v3_1
+      text:
+        - propositional form
+        - truth conditions
+        - logical relation
+        - truth-value structure
+    procedural:
+      cue_id: bool_proc_v3_1
+      text:
+        - evaluate clause by clause
+        - apply each operator
+        - respect precedence
+        - compute final truth
+    mixed:
+      cue_id: bool_mix_v3_1
+      text:
+        - truth value
+        - logical relation
+        - apply each operator
+        - respect precedence
+    lexical_overlap:
+      cue_id: bool_lex_v3_1
+      text:
+        - true false
+        - and or not
+        - parentheses
+        - boolean symbols
+    near_miss:
+      cue_id: bool_near_v3_1
+      text:
+        - speaker consistency
+        - contradiction status
+        - who is lying
+        - compatible claims
+  ordering_constraints:
+    canonical: relative order
+    semantic:
+      cue_id: order_sem_v3_1
+      text:
+        - relative position
+        - comparative rank
+        - order relation
+        - placement structure
+    procedural:
+      cue_id: order_proc_v3_1
+      text:
+        - place items stepwise
+        - enforce each clue
+        - propagate comparisons
+        - verify arrangement
+    mixed:
+      cue_id: order_mix_v3_1
+      text:
+        - relative order
+        - comparative rank
+        - enforce each clue
+        - propagate comparisons
+    lexical_overlap:
+      cue_id: order_lex_v3_1
+      text:
+        - left right
+        - first last
+        - middle slot
+        - ranking place
+    near_miss:
+      cue_id: order_near_v3_1
+      text:
+        - time sequence
+        - earlier later
+        - calendar order
+        - elapsed interval
+  state_tracking:
+    canonical: current state
+    semantic:
+      cue_id: state_sem_v3_1
+      text:
+        - state configuration
+        - assignment status
+        - evolving state
+        - possession state
+    procedural:
+      cue_id: state_proc_v3_1
+      text:
+        - update each move
+        - apply swaps in order
+        - keep latest owner
+        - verify endpoint
+    mixed:
+      cue_id: state_mix_v3_1
+      text:
+        - current state
+        - assignment status
+        - apply swaps in order
+        - keep latest owner
+    lexical_overlap:
+      cue_id: state_lex_v3_1
+      text:
+        - swap move transfer
+        - current owner
+        - final holder
+        - now has what
+    near_miss:
+      cue_id: state_near_v3_1
+      text:
+        - relative order
+        - rank position
+        - left right
+        - valid arrangement
+  temporal_reasoning:
+    canonical: time order
+    semantic:
+      cue_id: temp_sem_v3_1
+      text:
+        - temporal relation
+        - chronology structure
+        - elapsed interval
+        - sequence in time
+    procedural:
+      cue_id: temp_proc_v3_1
+      text:
+        - anchor reference time
+        - update each offset
+        - compare earlier later
+        - verify endpoint
+    mixed:
+      cue_id: temp_mix_v3_1
+      text:
+        - time order
+        - chronology structure
+        - update each offset
+        - compare earlier later
+    lexical_overlap:
+      cue_id: temp_lex_v3_1
+      text:
+        - day date week month
+        - earlier later
+        - tomorrow yesterday
+        - calendar shift
+    near_miss:
+      cue_id: temp_near_v3_1
+      text:
+        - rank position
+        - ordered layout
+        - left right
+        - placement relation
+  truth_consistency:
+    canonical: claim consistency
+    semantic:
+      cue_id: truth_sem_v3_1
+      text:
+        - statement compatibility
+        - truth-status relation
+        - contradiction structure
+        - consistency of claims
+    procedural:
+      cue_id: truth_proc_v3_1
+      text:
+        - assume a truth assignment
+        - propagate each statement
+        - check joint consistency
+        - test contradiction
+    mixed:
+      cue_id: truth_mix_v3_1
+      text:
+        - claim consistency
+        - contradiction structure
+        - propagate each statement
+        - check joint consistency
+    lexical_overlap:
+      cue_id: truth_lex_v3_1
+      text:
+        - liar truth teller
+        - yes no
+        - contradiction
+        - statement status
+    near_miss:
+      cue_id: truth_near_v3_1
+      text:
+        - cause and effect
+        - direct cause
+        - outcome change
+        - dependency pattern
+  causal_reasoning:
+    canonical: causal relation
+    semantic:
+      cue_id: causal_sem_v3_1
+      text:
+        - cause-effect structure
+        - causal connection
+        - generating factor
+        - dependency pattern
+    procedural:
+      cue_id: causal_proc_v3_1
+      text:
+        - trace what changes outcome
+        - compare interventions
+        - test dependence
+        - separate correlation
+    mixed:
+      cue_id: causal_mix_v3_1
+      text:
+        - causal relation
+        - generating factor
+        - compare interventions
+        - test dependence
+    lexical_overlap:
+      cue_id: causal_lex_v3_1
+      text:
+        - cause effect
+        - because leads to
+        - outcome change
+        - direct cause
+    near_miss:
+      cue_id: causal_near_v3_1
+      text:
+        - truth status
+        - contradiction check
+        - claim agreement
+        - speaker consistency

@@ -1,0 +1,49 @@
+experiment:
+  name: confirmatory_v3_ministral8b
+  phase: confirmatory_v3
+  seed: 777
+model:
+  model_id: mistralai/Ministral-8B-Instruct-2410
+  alias: ministral-8b-instruct-2410
+  load_in_4bit: true
+  compute_dtype: bfloat16
+  attn_implementation: eager
+prompt:
+  bundles_v2_path: prompts/bundles_v3.yaml
+  templates_path: prompts/templates_v2.yaml
+data:
+  synthetic_path: data/processed/confirmatory_v3/phaseE_heldout_4family_test.jsonl
+evaluation:
+  conditions:
+    - no_cue
+    - generic_neutral
+    - single_canonical
+    - exact_repetition
+    - matched_semantic
+    - matched_procedural
+    - matched_mixed
+    - matched_lexical_overlap
+    - matched_near_miss
+  evaluation_modes:
+    - free_form_only
+    - cot_before_options
+    - standard_mc
+    - binding_only
+  cue_placement: after_question
+  formatting_style: plain_sentence
+  batch_size:
+    free_form_only: 96
+    cot_before_options: 64
+    standard_mc: 160
+    binding_only: 160
+  max_new_tokens:
+    free_form_only: 16
+    cot_before_options: 96
+    standard_mc: 4
+    binding_only: 4
+results:
+  raw_jsonl: results/raw/confirmatory_v3/ministral-8b-instruct-2410_items.jsonl
+  items_csv: results/raw/confirmatory_v3/ministral-8b-instruct-2410_items.csv
+  summary_csv: results/processed/confirmatory_v3/per_model/ministral-8b-instruct-2410_summary.csv
+  family_summary_csv: results/processed/confirmatory_v3/per_model/ministral-8b-instruct-2410_family_summary.csv
+  report_path: reports/confirmatory_v3_ministral-8b-instruct-2410.md

@@ -1,0 +1,12 @@
+experiment:
+  name: construct_validity_phaseC_v3
+  phase: construct_validity_phaseC
+  seed: 911
+data:
+  output_dir: data/processed/construct_validity_v3
+  dev_per_family: 180
+  test_per_family: 1800
+results:
+  stats_csv: results/processed/construct_validity/phaseC_benchmark_v3_stats.csv
+  sample_csv: results/processed/construct_validity/phaseC_benchmark_v3_samples.csv
+  report_path: reports/phaseC_benchmark_v3.md

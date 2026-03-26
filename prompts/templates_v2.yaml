@@ -1,0 +1,20 @@
+system_prompt: |
+  You are solving a reasoning problem.
+user_template: |
+  Optional lens: {cue_block}
+  Answer with only {answer_format}.
+
+  {question}
+null_stem: "[Calibration placeholder: the problem content is hidden.]"
+wrapped_question_template: |
+  {stem}
+  Options:
+  {options_block}
+answer_formats:
+  option_letter: the option letter
+  option_text: the full answer text only
+  yes_no: Yes or No
+  true_false: True or False
+generation:
+  max_new_tokens: 4
+  stop_at_newline: true
