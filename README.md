@@ -1,4 +1,18 @@
+<div align="center">
+
 # minimal-cue-llm-reasoning
+
+**미세 단서가 LLM 추론을 정말로 흔드는가**
+**Do minimal prompt cues actually steer LLM reasoning?**
+
+![Status](https://img.shields.io/badge/status-dormant-lightgrey)
+![Language](https://img.shields.io/badge/language-Python-3776AB?logo=python&logoColor=white)
+![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)
+![Closure](https://img.shields.io/badge/closure-2026--03-blue)
+
+**한국어** · [English](#english)
+
+</div>
 
 > 🧊 **휴면(dormant) 중인 연구 파일럿입니다.**
 
@@ -93,3 +107,107 @@ python -m src.postprocess_confirmatory_v3 --bootstrap-samples 1000
 ## 상태
 
 🧊 **휴면 중** — 원래 큰 주장은 반증됐지만, 만들어진 벤치마크와 분리 평가 방법은 살아 있는 상태입니다.
+
+---
+
+<a name="english"></a>
+
+## English
+
+> 🧊 **Dormant research pilot.**
+
+### What this set out to test
+
+If you stick a short sentence (a "cue") in front of a language model, the same question can yield different answers. This project pushed one step further than that observation:
+
+> **If you flood the model with several rephrasings of the same underlying meaning,** does that steer reasoning more reliably than control conditions like plain repetition or surface word overlap?
+
+Testing that needed two things:
+
+- A small, well-controlled benchmark where you can cleanly see what is moving reasoning.
+- An evaluation that separates "solving the problem" from "binding the solution to an answer choice."
+
+Both were built, then run identically on Qwen 7B/14B, DeepSeek 7B, and Ministral 8B.
+
+### What it found
+
+- **The starting hypothesis didn't hold.** Multiple semantic paraphrasings of a cue did **not** outperform plain repetition or near-lexical overlap controls. The same pattern showed up across all four models.
+- **A more important methodological finding stayed.** The "binding" stage is near ceiling almost always; the real movement happens at the "solve" stage. If you don't separate them, the apparent cue effect is overstated.
+- **The small remaining effect is on surface, not meaning.** Cues do move things, but the movement is better explained by lexical overlap, canonical phrasing, procedural hints, and where the cue sits in the prompt — interface factors, not semantics.
+
+Full results:
+
+- 🇰🇷 [`reports/project_closure_report_ko_20260327.md`](reports/project_closure_report_ko_20260327.md)
+- 🇬🇧 [`reports/project_closure_report_20260327.md`](reports/project_closure_report_20260327.md)
+
+### Why it's on hold
+
+The big original claim ("semantic flooding steers reasoning") didn't survive the cleanest test. The two artifacts produced along the way — the controlled benchmark and the solve/bind decoupled evaluation — remain useful on their own. A natural restart would not re-litigate the semantic-flooding claim but would reframe around either **benchmark + cue-effect decomposition** or **the need for decoupled evaluation**.
+
+### Where to look first when revisiting
+
+- 🇬🇧 [`reports/project_closure_report_20260327.md`](reports/project_closure_report_20260327.md) — A full closure report. Read this first.
+- [`prompts/bundles_v3.yaml`](prompts/bundles_v3.yaml) — the cue families being compared.
+- [`prompts/templates_v2.yaml`](prompts/templates_v2.yaml) — the frozen prompt interface (where the cue sits).
+- [`configs/construct_validity_phaseC_v3.yaml`](configs/construct_validity_phaseC_v3.yaml) — benchmark generation config.
+- [`configs/`](configs/) — the four model-specific confirmatory configs.
+
+### Code map
+
+| File | What it does |
+|---|---|
+| [`src/build_benchmark_v3.py`](src/build_benchmark_v3.py) | Generates the controlled benchmark |
+| [`src/prepare_confirmatory_v3_inputs.py`](src/prepare_confirmatory_v3_inputs.py) | Prepares confirmatory inputs |
+| [`src/run_decoupled_eval.py`](src/run_decoupled_eval.py) | Runs the solve/bind decoupled evaluation |
+| [`src/postprocess_confirmatory_v3.py`](src/postprocess_confirmatory_v3.py) | Paired-statistics postprocessing |
+| [`src/prompt_building.py`](src/prompt_building.py) | Assembles cues + templates into final prompts |
+| [`src/scoring_methods.py`](src/scoring_methods.py), [`src/score_mc.py`](src/score_mc.py) | Multiple-choice scoring |
+| [`src/stats.py`](src/stats.py) | Bootstrap / paired statistics |
+| [`src/data_loading.py`](src/data_loading.py), [`src/utils.py`](src/utils.py) | I/O and shared utilities |
+
+### Folder map
+
+```
+.
+├── src/                experiment code
+├── configs/            benchmark and per-model confirmatory configs
+├── prompts/            cue definitions and templates
+├── reports/            closure reports (KO / EN)
+└── requirements.txt
+```
+
+### Environment
+
+```bash
+python3 -m venv --system-site-packages .venv
+source .venv/bin/activate
+pip install -U -r requirements.txt
+export HF_TOKEN=...   # only if needed
+```
+
+### Big-picture rerun
+
+```bash
+# 1) build the controlled benchmark
+python -m src.build_benchmark_v3 --config configs/construct_validity_phaseC_v3.yaml
+
+# 2) prepare confirmatory inputs
+python -m src.prepare_confirmatory_v3_inputs
+
+# 3) run the decoupled evaluation (one GPU per model)
+python -m src.run_decoupled_eval --config configs/confirmatory_v3_qwen7b.yaml      --gpu-id 0
+python -m src.run_decoupled_eval --config configs/confirmatory_v3_qwen14b.yaml     --gpu-id 1
+python -m src.run_decoupled_eval --config configs/confirmatory_v3_deepseek7b.yaml  --gpu-id 2
+python -m src.run_decoupled_eval --config configs/confirmatory_v3_ministral8b.yaml --gpu-id 3
+
+# 4) paired-statistics postprocessing
+python -m src.postprocess_confirmatory_v3 --bootstrap-samples 1000
+```
+
+### Status
+
+🧊 **Dormant** — the headline claim was refuted, but the benchmark and the decoupled-evaluation method are intact.
+
+### License
+
+Released under [CC BY-NC 4.0](./LICENSE).
