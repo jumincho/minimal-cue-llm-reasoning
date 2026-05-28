@@ -2,8 +2,8 @@
 
 Step (2) in the rerun flow:
 
-    1. build_benchmark   → per-family JSONLs under data/processed/construct_validity_v3/
-    2. prepare_inputs    → one consolidated JSONL + a CSV manifest + a markdown report  <-- this file
+    1. build_benchmark_v3 → per-family JSONLs under data/processed/construct_validity_v3/
+    2. prepare_inputs     → one consolidated JSONL + a CSV manifest + a markdown report  <-- this file
     3. run_decoupled_eval
 
 Emits:
