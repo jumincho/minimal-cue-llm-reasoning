@@ -1,3 +1,22 @@
+"""The runner: take a model + the consolidated test set, run every eval mode.
+
+Step (3) in the rerun flow. Loads a per-model config (see
+`configs/confirmatory_v3_<model>.yaml`), then for each TaskExample evaluates
+every condition under every evaluation mode (`free_form_only`,
+`cot_before_options`, `standard_mc`, `binding_only`).
+
+The four-mode core is the **decoupled evaluation** at the heart of the
+project: it lets us measure *where* a cue moves the model — at the
+solve step, the binding step, or both. The closure report reports
+`solve = standard_mc → binding_only` and `final = standard_mc`.
+
+Writes per-item raw rows under `results/raw/confirmatory_v3/<model>_items.jsonl`
+and per-mode CSV summaries under `results/processed/confirmatory_v3/per_model/`.
+
+The `config_hash` is embedded in each row so a downstream postprocess can
+flag stale runs vs. a changed config.
+"""
+
 from __future__ import annotations
 
 import argparse

@@ -1,3 +1,20 @@
+"""Statistical summaries used by the postprocess stage.
+
+Implements the three test families the closure report reports:
+
+- **Aggregate accuracy** (`aggregate_accuracy`): group-by mean + sum + count.
+- **Paired bootstrap delta** (`paired_bootstrap_delta`): per-item paired
+  resample of `(condition_a - condition_b)`, returns mean and 95% CI.
+- **McNemar exact-like** (`paired_mcnemar`): for paired correctness vectors.
+
+Also computes the "Selective Steering Index" (`selective_steering_index`,
+SSI) used as a diagnostic: SSI = matched-concept accuracy − off-diagonal
+mean accuracy, per (model, task). See GLOSSARY for SSI semantics.
+
+`pilot_go_no_go` is the pre-registered decision rule used to decide whether
+the pilot would scale up — answer turned out to be no.
+"""
+
 from __future__ import annotations
 
 from dataclasses import dataclass

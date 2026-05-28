@@ -10,7 +10,7 @@
 ![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)
 ![Closure](https://img.shields.io/badge/closure-2026--03-blue)
 
-**한국어** · [English](#english)
+**한국어** · [English](#english) · [中文](./README.zh-CN.md)
 
 </div>
 
@@ -18,7 +18,7 @@
 
 ## 무엇을 보려던 연구였나
 
-언어모델 앞에 아주 짧은 한 문장(단서)을 붙이면, 같은 문제라도 답이 달라지곤 합니다. 이 프로젝트의 출발 가설은 그것보다 한 발 더 들어갔습니다.
+언어모델 앞에 아주 짧은 한 문장(단서)를 붙이면, 같은 문제라도 답이 달라지곤 합니다. 이 프로젝트의 출발 가설은 그것보다 한 발 더 들어갔습니다.
 
 > **같은 의미를 다른 표현으로 살짝씩 바꿔 가며 여러 번 흘려 주면**, 단순 반복이나 표면 단어 겹침 같은 통제 조건보다 모델이 특정 추론 방식을 더 강하게 따라간다.
 
@@ -46,6 +46,7 @@
 
 ## 다시 들여다볼 때는 어디부터
 
+- 📖 [`GLOSSARY.md`](GLOSSARY.md) — 본문과 종료 보고서에 등장하는 내부 용어(`phaseC`, `V2 family`, `SSI`, 평가 모드, 조건 라벨 등)를 일반어로 정리한 사전
 - 🇰🇷 [`reports/project_closure_report_ko_20260327.md`](reports/project_closure_report_ko_20260327.md) — 한 편 분량의 종료 보고서. 가장 먼저 읽으면 좋은 글
 - [`prompts/bundles_v3.yaml`](prompts/bundles_v3.yaml) — 비교에 쓴 단서 종류들이 정의돼 있음
 - [`prompts/templates_v2.yaml`](prompts/templates_v2.yaml) — 단서를 문제 앞뒤 어디에 어떻게 두는지의 고정된 인터페이스
@@ -73,6 +74,7 @@
 ├── configs/            벤치마크 생성과 모델별 확인 설정
 ├── prompts/            단서 정의 / 템플릿
 ├── reports/            종료 보고서 (한국어 / 영문)
+├── GLOSSARY.md         내부 용어 사전
 └── requirements.txt
 ```
 
@@ -146,6 +148,7 @@ The big original claim ("semantic flooding steers reasoning") didn't survive the
 
 ### Where to look first when revisiting
 
+- 📖 [`GLOSSARY.md`](GLOSSARY.md) — Decoder ring for the internal vocabulary that survived into the source tree and the closure reports (`phaseC`, V2 family taxonomy, SSI, evaluation modes, condition labels).
 - 🇬🇧 [`reports/project_closure_report_20260327.md`](reports/project_closure_report_20260327.md) — A full closure report. Read this first.
 - [`prompts/bundles_v3.yaml`](prompts/bundles_v3.yaml) — the cue families being compared.
 - [`prompts/templates_v2.yaml`](prompts/templates_v2.yaml) — the frozen prompt interface (where the cue sits).
@@ -173,6 +176,7 @@ The big original claim ("semantic flooding steers reasoning") didn't survive the
 ├── configs/            benchmark and per-model confirmatory configs
 ├── prompts/            cue definitions and templates
 ├── reports/            closure reports (KO / EN)
+├── GLOSSARY.md         internal-vocabulary decoder ring
 └── requirements.txt
 ```
 

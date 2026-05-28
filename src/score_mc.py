@@ -1,3 +1,20 @@
+"""Multiple-choice scoring on a Hugging Face causal LM.
+
+Wraps a 4-bit quantized HF model behind `MultipleChoiceScorer.score_options`,
+which returns log-probabilities for each candidate completion given the same
+prompt prefix. Used by `scoring_methods.score_prepared_examples`.
+
+The constructor handles:
+
+- Optional 4-bit nf4 quantization via `bitsandbytes`.
+- Padding token shim (sets `pad_token = eos_token` if missing).
+- Attention implementation override (`eager` for older GPUs, `sdpa` for
+  newer ones).
+
+`ScoredCandidate` carries both summed and length-normalized log-probs; the
+selection rule lives in `scoring_methods.candidate_value`.
+"""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
