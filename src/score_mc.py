@@ -1,6 +1,6 @@
 """Multiple-choice scoring on a Hugging Face causal LM.
 
-Wraps a 4-bit quantized HF model behind `MultipleChoiceScorer.score_options`,
+Wraps a 4-bit quantized HF model behind `MultipleChoiceScorer.score_batch`,
 which returns log-probabilities for each candidate completion given the same
 prompt prefix. Used by `scoring_methods.score_prepared_examples`.
 
