@@ -1,3 +1,31 @@
+"""Bridge between TaskExample + the scorer: build the rows the runner writes.
+
+Two coordinate systems live here:
+
+- The **old "v1"** concept taxonomy (`causality`, `temporal`, `ordering`,
+  `state_tracking`, `boolean_logic`, `consistency_truth`) inherited from the
+  BBH task list.
+- The **new "v2"** family taxonomy (`boolean_logic`, `ordering_constraints`,
+  `state_tracking`, `temporal_reasoning`, `truth_consistency`,
+  `causal_reasoning`) used by the final benchmark. `V1_TO_V2` maps between
+  them; `family_from_example` returns the v2 family for any TaskExample.
+
+`prepare_evaluation_example` produces a `PreparedExample` for a given
+(example, condition, evaluation mode) triple, including the prompt text and
+the shuffled candidate set. `score_prepared_examples` then runs the scorer
+and emits per-candidate rows for downstream aggregation.
+
+The "evaluation mode" enumeration is the decoupled-evaluation core idea:
+
+- `free_form_only`     — generate then check the answer string.
+- `cot_before_options` — generate a CoT, then score options.
+- `standard_mc`        — score options against the bare question.
+- `binding_only`       — score options against an answered question (does
+                         the model still pick the right option when the
+                         answer is already in the prompt — the "binding"
+                         half of the solve/bind decomposition).
+"""
+
 from __future__ import annotations
 
 import json
