@@ -1,3 +1,23 @@
+"""Generate the synthetic four-family benchmark from scratch.
+
+Step (1) in the rerun flow. Produces deterministically-seeded items for each
+of:
+
+- `boolean_logic`        : nested boolean expressions over named variables.
+- `ordering_constraints` : "object X is left of object Y" style chains.
+- `state_tracking`       : "track who is holding what after these swaps".
+- `temporal_reasoning`   : date / interval problems.
+
+Each item is generated at one of several controlled **lexicalization regimes**
+(natural names, nonce names, mixed) and **difficulty levels**, so the final
+test set has balanced coverage across both axes. Counts come from
+`difficulty_counts` / `lexicalization_counts`.
+
+Output goes to `data/processed/construct_validity_v3/{train,dev,test}_<family>.jsonl`.
+The benchmark is *static* once generated — every downstream stage hashes
+the consolidated test set so a silent drift would be caught.
+"""
+
 from __future__ import annotations
 
 import argparse
