@@ -1,3 +1,25 @@
+"""BBH (Big-Bench Hard) loader and the in-memory representation of a task item.
+
+The benchmark stage uses native BBH tasks before the synthetic four-family
+benchmark is built. Each task is one of the six concepts we study; `TaskExample`
+is the structured form a downstream evaluator consumes.
+
+Key types:
+
+- `Candidate`: a single answer choice (label + display text + the text used
+  for log-probability scoring).
+- `TaskExample`: one item, with parsed candidates and the gold answer.
+
+Key mappings:
+
+- `TASK_TO_CONCEPT` : BBH task → concept the bundle is built around.
+- `TASK_TO_FAMILY_V2`: BBH task → coarser task family (the four-plus-two
+  family taxonomy used in the final round). See GLOSSARY for what "V2" means.
+
+`parse_candidates` does the format detection (option_letter / yes_no /
+true_false) by looking at the BBH item text and target.
+"""
+
 from __future__ import annotations
 
 import json

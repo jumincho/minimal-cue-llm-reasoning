@@ -1,3 +1,21 @@
+"""Concatenate the per-family benchmark JSONLs into one test set with a manifest.
+
+Step (2) in the rerun flow:
+
+    1. build_benchmark   → per-family JSONLs under data/processed/construct_validity_v3/
+    2. prepare_inputs    → one consolidated JSONL + a CSV manifest + a markdown report  <-- this file
+    3. run_decoupled_eval
+
+Emits:
+
+- `data/processed/confirmatory_v3/phaseE_heldout_4family_test.jsonl`
+  (one TaskExample per line, ready for the runner).
+- `results/processed/confirmatory_v3/phaseE_heldout_4family_manifest.csv`
+  (per-family count + sha256 of included item ids).
+- `reports/confirmatory_v3_input_manifest.md`
+  (human-readable summary of the manifest with the output sha256).
+"""
+
 from __future__ import annotations
 
 import argparse
