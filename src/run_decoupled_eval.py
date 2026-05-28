@@ -5,10 +5,16 @@ Step (3) in the rerun flow. Loads a per-model config (see
 every condition under every evaluation mode (`free_form_only`,
 `cot_before_options`, `standard_mc`, `binding_only`).
 
-The four-mode core is the **decoupled evaluation** at the heart of the
-project: it lets us measure *where* a cue moves the model — at the
-solve step, the binding step, or both. The closure report reports
-`solve = standard_mc → binding_only` and `final = standard_mc`.
+The four modes together form the **decoupled evaluation** at the heart of
+the project: by varying whether the model has to (a) solve the problem
+without options, (b) solve with chain-of-thought and then separately bind
+that provisional answer to an option letter, (c) solve and bind in one
+shot with options visible, or (d) bind a provided gold answer to an
+option letter, we can measure *where* a cue moves the model — at the
+solve step, at the binding step, or both. The per-row outputs use the
+columns `solve_correct`, `binding_correct`, and `final_correct`, with
+`final_correct` equal to the strict success on a given mode (e.g. for
+`cot_before_options`, both the solve and the bind must succeed).
 
 Writes per-item raw rows under `results/raw/confirmatory_v3/<model>_items.jsonl`
 and per-mode CSV summaries under `results/processed/confirmatory_v3/per_model/`.
