@@ -54,10 +54,3 @@ from "did it map the solution onto an answer choice."
 | **Selective Steering Index (SSI)** | Same thing — the diagonal advantage. See `selective_steering_index` in `src/stats.py`. |
 | **Matched-beats-controls** | Matched concept accuracy > best of {no_cue, generic_neutral_bundle, exact_repetition}, per task. |
 | **Pilot go / no-go** | The pre-registered decision rule: needs ≥ 3 tasks where matched beats controls AND ≥ 4 tasks with positive diagonal advantage. Result was **no go**. |
-
-## Why the version suffixes are still in filenames
-
-The closure reports name artifacts by their on-disk paths
-(`phaseE_heldout_4family_test.jsonl`, `bundles_v3.yaml`, ...). Renaming the
-files would silently break those cross-references, so the filenames are
-preserved as historical record. This glossary is the bridge.
