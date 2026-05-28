@@ -46,6 +46,7 @@
 
 ## 다시 들여다볼 때는 어디부터
 
+- 📖 [`GLOSSARY.md`](GLOSSARY.md) — 본문과 종료 보고서에 등장하는 내부 용어(`phaseC`, `V2 family`, `SSI`, 평가 모드, 조건 라벨 등)를 일반어로 정리한 사전
 - 🇰🇷 [`reports/project_closure_report_ko_20260327.md`](reports/project_closure_report_ko_20260327.md) — 한 편 분량의 종료 보고서. 가장 먼저 읽으면 좋은 글
 - [`prompts/bundles_v3.yaml`](prompts/bundles_v3.yaml) — 비교에 쓴 단서 종류들이 정의돼 있음
 - [`prompts/templates_v2.yaml`](prompts/templates_v2.yaml) — 단서를 문제 앞뒤 어디에 어떻게 두는지의 고정된 인터페이스
@@ -73,6 +74,7 @@
 ├── configs/            벤치마크 생성과 모델별 확인 설정
 ├── prompts/            단서 정의 / 템플릿
 ├── reports/            종료 보고서 (한국어 / 영문)
+├── GLOSSARY.md         내부 용어 사전
 └── requirements.txt
 ```
 
@@ -146,6 +148,7 @@ The big original claim ("semantic flooding steers reasoning") didn't survive the
 
 ### Where to look first when revisiting
 
+- 📖 [`GLOSSARY.md`](GLOSSARY.md) — Decoder ring for the internal vocabulary that survived into the source tree and the closure reports (`phaseC`, V2 family taxonomy, SSI, evaluation modes, condition labels).
 - 🇬🇧 [`reports/project_closure_report_20260327.md`](reports/project_closure_report_20260327.md) — A full closure report. Read this first.
 - [`prompts/bundles_v3.yaml`](prompts/bundles_v3.yaml) — the cue families being compared.
 - [`prompts/templates_v2.yaml`](prompts/templates_v2.yaml) — the frozen prompt interface (where the cue sits).
@@ -173,6 +176,7 @@ The big original claim ("semantic flooding steers reasoning") didn't survive the
 ├── configs/            benchmark and per-model confirmatory configs
 ├── prompts/            cue definitions and templates
 ├── reports/            closure reports (KO / EN)
+├── GLOSSARY.md         internal-vocabulary decoder ring
 └── requirements.txt
 ```
 

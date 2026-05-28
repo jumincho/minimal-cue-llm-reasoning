@@ -50,6 +50,7 @@
 
 ## 重启时先看哪里
 
+- 📖 [`GLOSSARY.md`](GLOSSARY.md) —— 把代码与关闭报告里出现的内部术语 (`phaseC`、V2 family、SSI、评估模式、条件标签等) 翻成日常用语的对照表
 - 🇰🇷 [`reports/project_closure_report_ko_20260327.md`](reports/project_closure_report_ko_20260327.md) —— 一篇分量的关闭报告,建议第一个看
 - [`prompts/bundles_v3.yaml`](prompts/bundles_v3.yaml) —— 比较中用到的提示线索家族定义
 - [`prompts/templates_v2.yaml`](prompts/templates_v2.yaml) —— 提示模板冻结后的接口(线索放在题目前后什么位置)
@@ -77,6 +78,7 @@
 ├── configs/            基准生成与每个模型的最终确证配置
 ├── prompts/            提示线索定义 / 模板
 ├── reports/            关闭报告(韩文 / 英文)
+├── GLOSSARY.md         内部术语词典
 └── requirements.txt
 ```
 
