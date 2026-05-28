@@ -1,3 +1,24 @@
+"""Aggregate per-model raw runs into the final tables, stats, plots, and report.
+
+Step (4) in the rerun flow. Inputs are the per-model `<model>_items.jsonl`
+files written by `run_decoupled_eval`; output is the closure report
+(`reports/confirmatory_v3_report.md`) and the figures referenced by it.
+
+What this file builds:
+
+- An integrity check that the consolidated test set hash matches what
+  each model run was actually scored on (`build_integrity_check`).
+- The "core claim" table (`build_core_claim_table`) — accuracy by
+  (model, family, mode, condition) restricted to the primary contrasts.
+- Paired-bootstrap CIs and McNemar p-values for the planned contrasts
+  (`build_paired_stats`).
+- The primary verdict table (`build_primary_verdict_table`) — converts
+  CIs into one of {wins, ties, loses} per contrast.
+- A handful of figures: competence gating, binding decomposition,
+  primary-delta heatmap, model and family forest plots.
+- The final stitched markdown report.
+"""
+
 from __future__ import annotations
 
 import argparse
