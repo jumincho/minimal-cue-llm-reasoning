@@ -134,7 +134,7 @@ The project did not fully settle every narrower question.
 
 So the project ended with a strong falsification / decomposition result, but not with a complete mechanistic account.
 
-## Publication Read At Closure
+## Publication Readiness At Closure
 
 The most defensible paper direction at closure would have been one of these:
 
