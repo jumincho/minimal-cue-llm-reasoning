@@ -1,3 +1,19 @@
+"""Lightweight I/O and reproducibility helpers shared across the pipeline.
+
+Exposes:
+
+- `PROJECT_ROOT`           : repo root, used to resolve config-relative paths.
+- `resolve_path(p)`        : convert config-relative paths to absolute paths.
+- `ensure_dir(p)`          : `mkdir -p` semantics.
+- `load_yaml` / `dump_yaml`: small YAML wrappers.
+- `read_jsonl` / `write_jsonl` / `append_jsonl`: line-delimited JSON helpers.
+- `set_seed(seed)`         : seeds Python, NumPy, PyTorch, and CUDA deterministically.
+- `normalize_text(s)`      : collapse whitespace.
+- `stable_int_from_text(s)`: deterministic non-cryptographic hash, used for
+                             item id seeding so a given item always lands in
+                             the same shuffled position.
+"""
+
 from __future__ import annotations
 
 import json

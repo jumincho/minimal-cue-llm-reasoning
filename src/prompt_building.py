@@ -1,3 +1,22 @@
+"""Glue layer that turns (TaskExample, condition) into the final chat prompt.
+
+What this file owns:
+
+- The mapping from a "condition" label (e.g., `concept_bundle_temporal`,
+  `exact_repetition`, `generic_neutral_bundle`, `no_cue`) to the cue text
+  that gets injected into the prompt.
+- The condition-to-bundle dispatch table `CONDITION_TO_BUNDLE`.
+- `build_prompt_artifacts(...)`, which assembles the cue + the answer-format
+  spec + the question through the chat template registered in `templates_v2.yaml`.
+- `measure_condition_token_counts(...)`, used to verify that a condition swap
+  does not also dramatically change the cue length (so prompt-length is
+  controlled across conditions).
+
+The actual cue strings live in `prompts/bundles_v3.yaml`; the template that
+holds the cue + question + answer-format slots lives in
+`prompts/templates_v2.yaml`.
+"""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
