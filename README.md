@@ -89,8 +89,10 @@ export HF_TOKEN=...   # 필요한 경우에만
 
 ## 다시 돌리는 큰 흐름
 
+> **참고:** `data/` 디렉터리는 저장소에 포함돼 있지 않습니다. 아래 1단계(`build_benchmark_v3`)를 먼저 실행해야 `data/processed/` 하위 경로가 만들어집니다. 새로 clone한 뒤 곧바로 2단계나 3단계를 실행하면 해당 경로를 찾지 못해 실패하니, 반드시 순서대로 진행하세요.
+
 ```bash
-# 1) 잘 통제된 벤치마크 생성
+# 1) 잘 통제된 벤치마크 생성 — data/processed/ 디렉터리가 여기서 처음 만들어짐
 python -m src.build_benchmark_v3 --config configs/construct_validity_phaseC_v3.yaml
 
 # 2) 최종 확인용 입력 준비
@@ -191,8 +193,10 @@ export HF_TOKEN=...   # only if needed
 
 ### Big-picture rerun
 
+> **Note:** The `data/` directory is not included in the repository. Step 1 (`build_benchmark_v3`) must run first — it creates `data/processed/` and all subdirectories that later steps read from. On a fresh clone, skipping step 1 and running step 2 or 3 directly will fail with a "file not found" error.
+
 ```bash
-# 1) build the controlled benchmark
+# 1) build the controlled benchmark — creates data/processed/ for the first time
 python -m src.build_benchmark_v3 --config configs/construct_validity_phaseC_v3.yaml
 
 # 2) prepare confirmatory inputs

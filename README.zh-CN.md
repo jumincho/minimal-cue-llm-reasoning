@@ -93,8 +93,10 @@ export HF_TOKEN=...   # 仅在需要时
 
 ## 重新跑一遍的大致流程
 
+> **注意：** `data/` 目录不包含在仓库中。第 1 步（`build_benchmark_v3`）必须先运行——它会创建 `data/processed/` 及后续步骤所需的全部子目录。在全新克隆的仓库中，如果跳过第 1 步直接运行第 2 步或第 3 步，会因找不到对应路径而报错，请务必按顺序执行。
+
 ```bash
-# 1) 生成受控基准
+# 1) 生成受控基准 —— data/processed/ 目录在此步骤首次创建
 python -m src.build_benchmark_v3 --config configs/construct_validity_phaseC_v3.yaml
 
 # 2) 准备最终确证阶段的输入
