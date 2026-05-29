@@ -16,6 +16,12 @@
 
 > 🧊 **휴면(dormant) 중인 연구 파일럿입니다.**
 
+## ⭐ 핵심 결과 (TL;DR)
+
+- **출발 가설(같은 의미를 여러 표현으로 흘려 주면 추론이 더 강하게 끌린다)은 반증됐습니다** — 단순 반복·표면 단어 겹침 통제 조건을 못 이겼고, 네 모델 모두 동일했습니다.
+- **더 중요한 방법론적 결론이 남았습니다** — "문제 풀이" 단계와 "보기 매핑" 단계를 분리해야 단서 효과 과대평가를 피합니다(매핑은 거의 천장, 진짜 차이는 풀이에서 발생).
+- 남은 작은 효과는 **"의미"가 아니라 "표면"**(단어 겹침·문구·위치 같은 인터페이스 요인) 쪽이었습니다.
+
 ## 무엇을 보려던 연구였나
 
 언어모델 앞에 아주 짧은 한 문장(단서)를 붙이면, 같은 문제라도 답이 달라지곤 합니다. 이 프로젝트의 출발 가설은 그것보다 한 발 더 들어갔습니다.
@@ -119,6 +125,12 @@ python -m src.postprocess_confirmatory_v3 --bootstrap-samples 1000
 ## English
 
 > 🧊 **Dormant research pilot.**
+
+### ⭐ Key result (TL;DR)
+
+- **The starting hypothesis (semantic paraphrase-flooding steers reasoning) was refuted** — it didn't beat plain-repetition or lexical-overlap controls, across all four models.
+- **The lasting contribution is methodological** — decoupling "solve" from "bind" (binding is near-ceiling; the real movement is at solve), which prevents overstating cue effects.
+- The small residual effect is **surface, not meaning** (lexical overlap, phrasing, position — interface factors).
 
 ### What this set out to test
 
